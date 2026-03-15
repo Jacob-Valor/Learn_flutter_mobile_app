@@ -22,8 +22,8 @@ Guidance for coding agents working in this repository.
 
 - No Cursor rules were found in `.cursor/rules/`.
 - No `.cursorrules` file was found.
-- No Copilot instructions were found in `.github/copilot-instructions.md`.
-- Use this file as the agent-facing instruction set unless new editor-specific rules are added later.
+- Copilot instructions live in `.github/copilot-instructions.md`.
+- Use this file as the primary agent-facing instruction set and the Copilot file as the concise companion version.
 
 ## Repo Layout
 
@@ -173,7 +173,7 @@ Guidance for coding agents working in this repository.
 - Do not assume custom state management libraries exist; none are declared in `pubspec.yaml` today.
 - Do not assume custom lint rules exist beyond `flutter_lints`.
 - Do not assume CI-specific wrapper commands exist; use the Flutter and Dart CLIs directly.
-- Do not assume editor rule files exist; none were found during repository analysis.
+- Do not assume Cursor rule files exist; none were found during repository analysis.
 
 ## Bottom Line
 
