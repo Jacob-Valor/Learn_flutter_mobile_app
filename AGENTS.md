@@ -175,6 +175,14 @@ Guidance for coding agents working in this repository.
 - Do not assume CI-specific wrapper commands exist; use the Flutter and Dart CLIs directly.
 - Do not assume Cursor rule files exist; none were found during repository analysis.
 
+## Known Deviations & Notes
+
+- `lib/src/pages/firstscreen.dart` uses non-standard file naming; prefer `first_screen.dart`.
+- `lib/src/example/` is an unusual source subfolder for production app code.
+- `lib/main.dart` currently mounts `TestScreen` from `lib/src/example/test_screen.dart`.
+- `test/widget_test.dart` is the default Flutter counter smoke test and is likely stale relative to the current UI.
+- `.github/workflows/opencode.yml` is a comment-triggered agent workflow, not a standard build/test CI job.
+
 ## Bottom Line
 
 - Use standard Flutter CLI commands.

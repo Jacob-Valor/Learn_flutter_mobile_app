@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_app/firstscreen.dart';
+import 'package:mobile_app/src/example/test_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const MSTApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MSTApp extends StatelessWidget {
+  const MSTApp({super.key});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: const FirstScreen());
+    return MaterialApp(title: 'MST App', home: const TestScreen());
   }
 }

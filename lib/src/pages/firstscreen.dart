@@ -1,7 +1,7 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:mobile_app/src/pages/login/login_page.dart';
 
 class FirstScreen extends StatefulWidget {
   const FirstScreen({super.key});
@@ -18,7 +18,7 @@ class _FirstScreenState extends State<FirstScreen> {
       const Duration(seconds: 3),
       () => Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => SecondPage()),
+        MaterialPageRoute(builder: (context) => LoginPage()),
       ),
     );
   }
