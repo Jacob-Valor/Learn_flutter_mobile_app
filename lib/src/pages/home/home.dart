@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_app/src/pages/home/home_view.dart';
+import 'home_view.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -11,21 +11,10 @@ class Home extends StatelessWidget {
 
   AppBar buildAppBar(BuildContext context) {
     return AppBar(
-      leading: IconButton(
-        icon: const Icon(Icons.category),
-        color: Colors.white,
-        onPressed: () {},
-      ),
       centerTitle: true,
-      title: Text(
-        'Home',
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 24,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      backgroundColor: Colors.greenAccent,
+      backgroundColor: Colors.blue,
+      title: Text('Home', style: TextStyle(color: Colors.white, fontSize: 24)),
+      leading: Icon(Icons.arrow_back, color: Colors.white),
     );
   }
 }
