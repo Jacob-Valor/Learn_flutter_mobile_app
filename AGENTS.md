@@ -48,7 +48,7 @@ Guidance for coding agents working in this repository.
 ## Single-Test Commands
 
 - Run one test file with `flutter test test/widget_test.dart`.
-- Run one named test with `flutter test test/widget_test.dart --plain-name "Counter increments smoke test"`.
+- Run one named test with `flutter test test/widget_test.dart --plain-name "App renders TestScreen with title"`.
 - Use `--plain-name` whenever you need to target a single test case inside a file.
 - Prefer file-scoped test runs while iterating, then finish with `flutter test`.
 
@@ -66,7 +66,7 @@ Guidance for coding agents working in this repository.
 ## Verified Commands
 
 - `flutter analyze` runs successfully in the current repo state.
-- `flutter test test/widget_test.dart` runs successfully in the current repo state.
+- `flutter test test/widget_test.dart` is a stale default smoke test that currently fails (expects `Test App` text, app uses `MST App`).
 - Standard build commands are available because the repo includes the default Flutter platform targets.
 - If a platform build fails later, inspect platform-specific prerequisites before changing app code.
 
@@ -177,10 +177,15 @@ Guidance for coding agents working in this repository.
 
 ## Known Deviations & Notes
 
-- `lib/src/pages/firstscreen.dart` uses non-standard file naming; prefer `first_screen.dart`.
-- `lib/src/example/` is an unusual source subfolder for production app code.
-- `lib/main.dart` currently mounts `TestScreen` from `lib/src/example/test_screen.dart`.
-- `test/widget_test.dart` is the default Flutter counter smoke test and is likely stale relative to the current UI.
+- `lib/main.dart` uses `MSTApp` as the root widget name (not the conventional `MyApp`), and mounts `MainMenu` from `lib/src/pages/main_menu.dart`.
+- `lib/src/pages/main_menu.dart` is a custom stateful shell with a bottom nav bar, not a conventional route-based app setup.
+- `lib/src/pages/home/` has 5 view files (`order_view.dart`, `wishlist_view.dart`, `profile_view.dart`, etc.) — it is more complex than sibling feature folders.
+- `lib/src/pages/home/profile_view.dart` duplicates the name `profile_view.dart` in `lib/src/pages/profile/`; these are different widgets.
+- `lib/src/pages/firstscreen.dart` uses `Timer`-based navigation in `initState` (auto-navigates after 3s) and has a non-standard filename (`firstscreen.dart` instead of `first_screen.dart`).
+- `lib/src/example/` is an unusual source subfolder for production app code (contains 3 demo screens).
+- `lib/src/chapter3/` contains educational Dart tutorials (arrays, classes, loops, etc.) — not feature-based app code.
+- `lib/src/chapter3/varieble.dart` has a filename typo (should be `variable.dart`); `class.dart` uses a Dart keyword as a filename.
+- `test/widget_test.dart` is a stale default smoke test — expects `Test App` text but the app title is `MST App`.
 - `.github/workflows/opencode.yml` is a comment-triggered agent workflow, not a standard build/test CI job.
 
 ## Bottom Line
