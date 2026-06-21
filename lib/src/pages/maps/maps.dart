@@ -1,23 +1,37 @@
 import 'package:flutter/material.dart';
+import '../components/my_drawer.dart';
 import 'maps_view.dart';
 
 class Maps extends StatelessWidget {
-  const Maps({super.key});
+  Maps({super.key});
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: buildAppbar(context), body: MapsView());
+    return Scaffold(
+      key: _scaffoldKey,
+      appBar: buildAppBar(context),
+      body: MapsView(),
+      drawer: MyDrawer(),
+    );
   }
 
-  AppBar buildAppbar(BuildContext context) {
+  AppBar buildAppBar(BuildContext context) {
     return AppBar(
       centerTitle: true,
       backgroundColor: Colors.blue,
-      title: const Text(
-        'Maps',
-        style: TextStyle(fontSize: 24, color: Colors.white),
+      title: Text('Maps', style: TextStyle(color: Colors.white, fontSize: 24)),
+      leading: IconButton(
+        icon: Icon(Icons.menu, color: Colors.white),
+        onPressed: () => _scaffoldKey.currentState?.openDrawer(),
       ),
-      leading: Icon(Icons.arrow_back, color: Colors.white),
+      actions: [
+        IconButton(
+          icon: Icon(Icons.logout),
+          color: Colors.white,
+          onPressed: () => {MyDrawer.alertDialogLogout(context)},
+        ),
+      ],
     );
   }
 }
