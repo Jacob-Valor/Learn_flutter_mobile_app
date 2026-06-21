@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'category_view.dart';
 import '../components/my_drawer.dart';
-import 'maps_view.dart';
 
-class Maps extends StatelessWidget {
-  Maps({super.key});
+class Category extends StatelessWidget {
+  Category({super.key});
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -11,7 +11,7 @@ class Maps extends StatelessWidget {
     return Scaffold(
       key: _scaffoldKey,
       appBar: buildAppBar(context),
-      body: MapsView(),
+      body: CategoryView(),
       drawer: MyDrawer(),
     );
   }
@@ -20,7 +20,10 @@ class Maps extends StatelessWidget {
     return AppBar(
       centerTitle: true,
       backgroundColor: Colors.blue,
-      title: Text('Maps', style: TextStyle(color: Colors.white, fontSize: 24)),
+      title: Text(
+        'Category',
+        style: TextStyle(color: Colors.white, fontSize: 24),
+      ),
       leading: IconButton(
         icon: Icon(Icons.menu, color: Colors.white),
         onPressed: () => _scaffoldKey.currentState?.openDrawer(),

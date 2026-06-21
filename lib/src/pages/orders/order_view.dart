@@ -10,9 +10,6 @@ class OrderView extends StatefulWidget {
 class _OrderViewState extends State<OrderView> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Order')),
-      body: const Center(child: Text('')),
-    );
+    return Center(child: Text('Order Page', style: TextStyle(fontSize: 24)));
   }
 }

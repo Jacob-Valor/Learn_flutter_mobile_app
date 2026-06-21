@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
 import 'home_view.dart';
+import '../components/my_drawer.dart';
 
 class Home extends StatelessWidget {
-  const Home({super.key});
+  Home({super.key});
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: buildAppBar(context), body: HomeView());
+    return Scaffold(
+      key: _scaffoldKey,
+      appBar: buildAppBar(context),
+      body: HomeView(),
+      drawer: const MyDrawer(),
+    );
   }
 
   AppBar buildAppBar(BuildContext context) {
@@ -14,7 +21,17 @@ class Home extends StatelessWidget {
       centerTitle: true,
       backgroundColor: Colors.blue,
       title: Text('Home', style: TextStyle(color: Colors.white, fontSize: 24)),
-      leading: Icon(Icons.arrow_back, color: Colors.white),
+      leading: IconButton(
+        icon: Icon(Icons.menu, color: Colors.white),
+        onPressed: () => _scaffoldKey.currentState?.openDrawer(),
+      ),
+      actions: [
+        IconButton(
+          icon: Icon(Icons.logout),
+          color: Colors.white,
+          onPressed: () => MyDrawer.alertDialogLogout(context),
+        ),
+      ],
     );
   }
 }

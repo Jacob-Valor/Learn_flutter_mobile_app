@@ -13,6 +13,10 @@ class MSTApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: 'MST App', home: const MainMenu());
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'MST App',
+      home: const MainMenu(),
+    );
   }
 }
